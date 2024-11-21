@@ -1,0 +1,28 @@
+package running;
+
+import java.awt.BorderLayout;
+import java.awt.Menu;
+
+import javax.swing.JFrame;
+import javax.swing.JMenuBar;
+
+import var.Vars;
+
+public class Running {
+	public static void main(String[] args) {
+		JFrame frame = new JFrame("Java Printer");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(800,600);
+		JMenuBar menuBar = new JMenuBar();
+		Menu fileMenu = new Menu("file");
+		Menu editMenu = new Menu("edit");
+		Menu helpMenu = new Menu("help"); 
+		
+		frame.getContentPane().add(Vars.paintPanel,BorderLayout.CENTER);
+		frame.getContentPane().add(Vars.northPanel,BorderLayout.NORTH);
+		frame.getContentPane().add(Vars.leftBar,BorderLayout.WEST);
+		frame.getContentPane().add(Vars.southPanel,BorderLayout.SOUTH);
+		frame.setVisible(true);
+		
+	}
+}

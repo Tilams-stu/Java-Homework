@@ -1,0 +1,10 @@
+package var;
+
+
+import view.MyPanel;
+
+public class Vars {
+
+	public static MyPanel paintPanel = new MyPanel();
+
+}

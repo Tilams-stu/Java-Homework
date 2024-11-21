@@ -1,0 +1,29 @@
+package control;
+
+import java.awt.Color;
+
+public class controller {
+	public static final int RECT = 1;
+	public static final int OVAL = 2;
+	public static final int TEXT = 3;
+	private int shapeType;
+	
+	private Color foreColor,backColor;
+	private String textString;
+	public void setShapeType(int shapeType) {
+		this.shapeType = shapeType;
+	}
+	public void setForeColor(Color foreColor) {
+		this.foreColor = foreColor;
+	}
+	public void setBackColor(Color backColor) {
+		this.backColor = backColor;
+	}
+	public void setTextString(String textString) {
+		this.textString = textString;
+	}
+	
+	public void finishJob() {
+		
+	}
+}

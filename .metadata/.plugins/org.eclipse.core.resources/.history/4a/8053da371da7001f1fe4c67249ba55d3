@@ -1,0 +1,42 @@
+package model;
+
+import java.awt.Color;
+import java.util.Objects;
+
+public class Shape {
+	int type;
+	Color foreColor;
+	Color backColor;
+	String textString;
+	int x1,y1;
+	int x2,y2;
+	public Shape(int type, Color foreColor, Color backColor, String textString, int x1, int y1, int x2, int y2) {
+		super();
+		this.type = type;
+		this.foreColor = foreColor;
+		this.backColor = backColor;
+		this.textString = textString;
+		this.x1 = x1;
+		this.y1 = y1;
+		this.x2 = x2;
+		this.y2 = y2;
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(backColor, foreColor, textString, type, x1, x2, y1, y2);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Shape other = (Shape) obj;
+		return Objects.equals(backColor, other.backColor) && Objects.equals(foreColor, other.foreColor)
+				&& Objects.equals(textString, other.textString) && type == other.type && x1 == other.x1
+				&& x2 == other.x2 && y1 == other.y1 && y2 == other.y2;
+	}
+	
+}

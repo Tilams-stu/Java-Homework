@@ -1,0 +1,66 @@
+package running;
+
+import java.awt.*;
+
+import javax.swing.JFrame;
+import javax.swing.JMenuBar;
+
+import var.Vars;
+
+public class Running {
+	public static void main(String[] args) {
+		JFrame frame = new JFrame("Java Printer");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(800,600);
+		
+		// 创建“文件”菜单
+        Menu fileMenu = new Menu("文件");
+        MenuItem openItem = new MenuItem("打开");
+        MenuItem saveItem = new MenuItem("保存");
+        MenuItem exitItem = new MenuItem("退出");
+
+        // 将菜单项添加到“文件”菜单
+        fileMenu.add(openItem);
+        fileMenu.addSeparator(); 
+        fileMenu.add(saveItem);
+        fileMenu.addSeparator(); // 添加分隔线
+        fileMenu.add(exitItem);
+
+        // 创建“编辑”菜单
+        Menu editMenu = new Menu("编辑");
+        MenuItem cutItem = new MenuItem("剪切");
+        MenuItem copyItem = new MenuItem("复制");
+        MenuItem pasteItem = new MenuItem("粘贴");
+
+        // 将菜单项添加到“编辑”菜单
+        editMenu.add(cutItem);
+        editMenu.add(copyItem);
+        editMenu.add(pasteItem);
+
+        // 创建带复选框的菜单项
+        CheckboxMenuItem checkboxMenuItem = new CheckboxMenuItem("启用高级选项");
+        editMenu.add(checkboxMenuItem);
+
+        // 将菜单添加到菜单栏
+        menuBar.add(fileMenu);
+        menuBar.add(editMenu);
+
+        // 设置菜单栏到 Frame
+        frame.setMenuBar(menuBar);
+
+        // 添加菜单事件监听
+        exitItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0); // 退出程序
+            }
+        });
+		
+		frame.getContentPane().add(Vars.paintPanel,BorderLayout.CENTER);
+		frame.getContentPane().add(Vars.northPanel,BorderLayout.NORTH);
+		frame.getContentPane().add(Vars.leftBar,BorderLayout.WEST);
+		frame.getContentPane().add(Vars.southPanel,BorderLayout.SOUTH);
+		frame.setVisible(true);
+		
+	}
+}

@@ -1,0 +1,13 @@
+package var;
+
+
+
+import model.NorthPanel;
+import view.MyPanel;
+
+public class Vars {
+
+	public static NorthPanel northPanel = new NorthPanel();
+	public static MyPanel paintPanel = new MyPanel();
+
+}

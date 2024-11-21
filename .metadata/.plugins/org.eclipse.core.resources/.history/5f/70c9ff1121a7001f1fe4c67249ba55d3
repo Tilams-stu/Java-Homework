@@ -1,0 +1,53 @@
+package control;
+
+import java.awt.Color;
+import java.awt.Shape;
+import java.security.PublicKey;
+import java.util.LinkedList;
+
+import model.Shapes;
+
+public class Controller {
+	public static final int RECT = 1;
+	public static final int OVAL = 2;
+	public static final int TEXT = 3;
+	private int shapeType;
+	
+	private Color foreColor,backColor;
+	private String textString;
+	public void setShapeType(int shapeType) {
+		this.shapeType = shapeType;
+	}
+	public void setForeColor(Color foreColor) {
+		this.foreColor = foreColor;
+	}
+	public void setBackColor(Color backColor) {
+		this.backColor = backColor;
+	}
+	public void setTextString(String textString) {
+		this.textString = textString;
+	}
+	
+	public int getShapeType() {
+		return shapeType;
+	}
+	public Color getForeColor() {
+		return foreColor;
+	}
+	public Color getBackColor() {
+		return backColor;
+	}
+	public String getTextString() {
+		return textString;
+	}
+	
+	private LinkedList<Shapes> jobList = new LinkedList<Shapes>();
+	public void finishJob(String tString x1, int y1, int x2, int y2) {
+		Shapes shape = new Shapes(shapeType, foreColor, backColor, tString, x1, y1, x2, y2);
+		jobList.add(shape);
+		
+	}
+	public LinkedList<Shapes> getjobList(){
+		return jobList;
+	}
+}

@@ -1,0 +1,65 @@
+package running;
+
+import java.awt.*;
+
+import javax.swing.*;
+import java.awt.event.*;
+import var.Vars;
+
+public class Running {
+	public static void main(String[] args) {
+		JFrame frame = new JFrame("Java Printer");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(800,600);
+		
+		// 创建菜单栏
+        MenuBar menuBar = new MenuBar();
+		// 创建“文件”菜单
+        Menu fileMenu = new Menu("file");
+        MenuItem openItem = new MenuItem("open");
+        MenuItem saveItem = new MenuItem("save");
+        MenuItem exitItem = new MenuItem("exit");
+
+        // 将菜单项添加到“文件”菜单
+        fileMenu.add(openItem);
+        fileMenu.addSeparator(); 
+        fileMenu.add(saveItem);
+        fileMenu.addSeparator(); 
+        fileMenu.add(exitItem);
+
+        // 创建“编辑”菜单
+        Menu editMenu = new Menu("edit");
+        MenuItem cutItem = new MenuItem("cut");
+        MenuItem copyItem = new MenuItem("copy");
+        MenuItem pasteItem = new MenuItem("paste");
+
+        // 将菜单项添加到“编辑”菜单
+        editMenu.add(cutItem);
+        fileMenu.addSeparator(); 
+        editMenu.add(copyItem);
+        fileMenu.addSeparator(); 
+        editMenu.add(pasteItem);
+        
+        // 将菜单添加到菜单栏
+        menuBar.add(fileMenu);
+        menuBar.add(editMenu);
+
+        // 设置菜单栏到 Frame
+        frame.setMenuBar(menuBar);
+
+        // 添加菜单事件监听
+        exitItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0); // 退出程序
+            }
+        });
+		
+		frame.getContentPane().add(Vars.paintPanel,BorderLayout.CENTER);
+		frame.getContentPane().add(Vars.northPanel,BorderLayout.NORTH);
+		frame.getContentPane().add(Vars.leftBar,BorderLayout.WEST);
+		frame.getContentPane().add(Vars.southPanel,BorderLayout.SOUTH);
+		frame.setVisible(true);
+		
+	}
+}

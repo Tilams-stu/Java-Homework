@@ -1,0 +1,40 @@
+package model;
+
+import java.awt.Font;
+import java.awt.TextField;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import var.Vars;
+
+public class SouthPanel extends JPanel{
+	int x1,y1,x2,y2;
+	public SouthPanel(){
+		JTextField textField1 = new JTextField();
+		
+		textField1.setHorizontalAlignment(JTextField.LEFT);
+		
+		add(textField1);
+
+		addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				x1=e.getX();
+				y1=e.getY();
+				x2=x1;
+				y2=y1;
+				textField1.setText("Pressed "+"x1="+x1+" y1="+y1);
+				//repaint();
+			}
+			public void mouseReleased(MouseEvent e) {
+				x2 = e.getX();
+				y2 = e.getY();
+				textField1.setText("Released x1="+x1 +" y1="+y1+" x2="+x2+" y2="+y2);
+				//repaint();
+			}
+		});
+	}
+}

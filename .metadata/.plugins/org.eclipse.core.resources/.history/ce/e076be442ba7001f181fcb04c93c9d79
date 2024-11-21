@@ -1,0 +1,9 @@
+package model;
+
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class SouthPanel extends JPanel{
+	private JTextField textField = new JTextField();
+	
+}
